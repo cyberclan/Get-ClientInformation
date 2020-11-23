@@ -11,11 +11,6 @@ $osName = ((Get-CimInstance Win32_OperatingSystem).Name).Split("|")[0]
 $osVersion = (Get-CimInstance Win32_OperatingSystem).Version
 $buildNumber = (Get-CimInstance Win32_OperatingSystem).BuildNumber
 
-
-#Clear-Host
-#Get-WmiObject Win32_Computersystem | Format-List Name, Description, TotalPhysicalMemory, NumberOfLogicalProcessors 
-#(Get-WMIObject Win32_OperatingSystem).Description
-
 $String = "Computer-Informationen" + $nl +
           "Computername: " + $hostname + $nl + 
           "Domain-Name: " + $env:USERDOMAIN + $nl +
@@ -36,7 +31,6 @@ $String = "Computer-Informationen" + $nl +
           "Build Number: " + $buildNumber
 
 $statusbar = "Information"
-#Write-Host $String
 [System.Reflection.Assembly]::LoadWithPartialName(“System.Windows.Forms”) > null
 [Windows.Forms.MessageBox]::Show($string, $statusbar, [Windows.Forms.MessageBoxButtons]::OK, [Windows.Forms.MessageBoxIcon]::Information) > null
 
